@@ -1,1 +1,1 @@
-DatabaseCodeGenerator\bin\Release\DatabaseCodeGenerator.exe Schema\versions.xml Output game editor
+DatabaseCodeGenerator\bin\Debug\DatabaseCodeGenerator.exe Schema\versions.xml Output game editor
