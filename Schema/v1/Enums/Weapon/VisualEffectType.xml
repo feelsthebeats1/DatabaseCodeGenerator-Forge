@@ -6,4 +6,8 @@
     <item name="Smoke" />
     <item name="SmokeAdditive" />
     <item name="Shake" />
+    <item name="Spark" />
+    <item name="Lightning" />
+    <item name="LightningStrike" />
+    <item name="Sprite" />
 </data>

@@ -11,6 +11,14 @@
     <member name="BaseShieldRechargeRate" type="float" minvalue="0" maxvalue="1000000" />
     <member name="ShieldRechargeCooldown" type="float" minvalue="0" maxvalue="60" />
     <member name="BaseDroneReconstructionSpeed" type="float" minvalue="0" maxvalue="100" />
-    <member name="MaxVelocity" type="float" minvalue="5" maxvalue="30" />
-    <member name="MaxTurnRate" type="float" minvalue="5" maxvalue="30" />
+    <member name="ShieldCorrosiveResistance" type="float" minvalue="0" maxvalue="1" default="0.9" />
+    <member name="MaxVelocity" type="float" minvalue="5" maxvalue="100" default="30" />
+    <member name="MaxAngularVelocity" type="float" minvalue="5" maxvalue="100" default="30" />
+    <member name="MaxAcceleration" type="float" minvalue="5" maxvalue="1000" default="300" />
+    <member name="MaxAngularAcceleration" type="float" minvalue="5" maxvalue="1000" default="300" />
+    <member name="DisableCellsExpansions" type="bool" />
+    <member name="ShipExplosionEffect" type="object" typeid="VisualEffect" />
+    <member name="ShipExplosionSound" type="audioclip" />
+    <member name="DroneExplosionEffect" type="object" typeid="VisualEffect" />
+    <member name="DroneExplosionSound" type="audioclip" />
 </data>
