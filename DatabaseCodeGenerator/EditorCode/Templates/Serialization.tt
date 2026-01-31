@@ -1,7 +1,12 @@
 ﻿<#@ import namespace="Schema" #><#+
 		private string GetDefaultValue(XmlClassMember member, DatabaseSchema schema)
 		{
-			if (string.IsNullOrEmpty(member.@default)) return string.Empty;
+			if (string.IsNullOrEmpty(member.@default))
+			{
+				if (member.type == Constants.TypeInt) return "0";
+				if (member.type == Constants.TypeFloat) return "0f";
+				return string.Empty;
+			}
 
 			switch (member.type)
 			{
@@ -49,13 +54,9 @@
 				if (addAssignment) assignDefaultValue = $" = {defaultValue}";
 			}
 
-			if (member.type == Constants.TypeInt)
+			                WriteLine($"public NumericValue<int> {member.name} = new NumericValue<int>({defaultValue}, {member.minvalue}, {member.maxvalue});");			else if (member.type == Constants.TypeFloat)
 			{
-				WriteLine("public int " + member.name + assignDefaultValue + ";");
-			}
-			else if (member.type == Constants.TypeFloat)
-			{
-				WriteLine("public float " + member.name + assignDefaultValue + ";");
+				WriteLine($"public NumericValue<float> {member.name} = new NumericValue<float>({defaultValue}, {member.minvalue}f, {member.maxvalue}f);");
 			}
 			else if (member.type == Constants.TypeBool)
 			{
@@ -321,7 +322,7 @@
             else if (member.type == Constants.TypeStruct)
             {
 				var dataClass = schema.GetStruct(member.typeid);
-                WriteLine($"serializable.{member.name} = {memberName}.Value?.{Utils.StructSerializationMethodName}();");
+                WriteLine($"serializable.{member.name} = {memberName}?.{Utils.StructSerializationMethodName}();");
             }
             else if (member.type == Constants.TypeStructList)
             {
@@ -391,7 +392,7 @@
             else if (member.type == Constants.TypeStruct)
             {
 				var dataClass = schema.GetStruct(member.typeid);
-                WriteLine($"{memberName}.Value = {Utils.ClassesNamespace}.{Utils.DataClassName(dataClass)}.Create(serializable.{member.name}, database);");
+                WriteLine($"{memberName} = {Utils.ClassesNamespace}.{Utils.DataClassName(dataClass)}.Create(serializable.{member.name}, database);");
             }
             else if (member.type == Constants.TypeStructList)
             {

@@ -5,10 +5,5 @@
     <member name="InfectedPlanetFaction" type="object" typeid="Faction" />
     <member name="HiveShipBuild" type="object" typeid="ShipBuild" />
     <member name="GasCloudDPS" type="expression" typeid="IntToFloat" arguments="level" minvalue="1" default="MIN(level*2,500)" />
-    <member name="AsteroidBelt" type="struct" typeid="AsteroidBeltSettings">
-        <member name="MeteoriteChance" type="int" default="70"/>
-        <member name="ContainerChance" type="int" default="15"/>
-        <member name="ShipWreckChance" type="int" default="10"/>
-        <member name="OutpostChance" type="int" default="5"/>
-    </member>
+    <member name="AsteroidBelt" type="struct" typeid="AsteroidBeltSettings" />
 </data>

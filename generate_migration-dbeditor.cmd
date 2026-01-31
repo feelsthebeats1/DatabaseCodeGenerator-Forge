@@ -1,0 +1,1 @@
+DatabaseCodeGenerator\bin\Debug\DatabaseCodeGenerator.exe Schema\versions.xml OutputEditor upgrade_editor
